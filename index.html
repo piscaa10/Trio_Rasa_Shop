@@ -21,4 +21,326 @@
 
         /* HEADER */
         header {
-            background: linear-gradient(135deg, #5a321f, #9b5
+            background: linear-gradient(135deg, #5a321f, #9b5b35);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+            border-radius: 0 0 35px 35px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        /* MENU */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .judul {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .judul h2 {
+            font-size: 28px;
+        }
+
+        .judul p {
+            color: #8b6b5a;
+            margin-top: 5px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            padding: 18px;
+            box-shadow: 0 8px 25px rgba(70, 40, 20, 0.12);
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(70, 40, 20, 0.18);
+        }
+
+        .gambar {
+            height: 190px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 80px;
+        }
+
+        .martabak {
+            background: #f7dfb8;
+        }
+
+        .durian {
+            background: #e9edb1;
+        }
+
+        .mochi {
+            background: #f6dce8;
+        }
+
+        .card h3 {
+            margin-top: 18px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #80695c;
+            font-size: 14px;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .harga {
+            font-size: 19px;
+            font-weight: bold;
+            color: #9b542d;
+            margin: 12px 0;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            padding: 13px;
+            border-radius: 15px;
+            background: #5a321f;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #9b5b35;
+        }
+
+        /* PESAN */
+        #pesanan {
+            display: none;
+            max-width: 550px;
+            margin: 40px auto;
+            background: white;
+            padding: 28px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(70,40,20,0.15);
+            text-align: center;
+        }
+
+        #pesanan h2 {
+            margin-bottom: 10px;
+        }
+
+        #namaMenu {
+            color: #9b542d;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0 20px;
+        }
+
+        .wa {
+            display: block;
+            text-decoration: none;
+            background: #25D366;
+            color: white;
+            padding: 14px;
+            border-radius: 15px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .wa:hover {
+            background: #1ebe5d;
+        }
+
+        .tutup {
+            margin-top: 10px;
+            background: #eee;
+            color: #555;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 50px;
+            padding: 25px;
+            background: #3b2418;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 500px) {
+            header h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Trio Rasa Shop</h1>
+        <p>✨ Tiga rasa, satu tempat favorit ✨</p>
+    </header>
+
+    <main class="container">
+
+        <div class="judul">
+            <h2>🍽️ Menu Kami</h2>
+            <p>Pilih makanan favoritmu!</p>
+        </div>
+
+        <div class="menu">
+
+            <!-- MARTABAK -->
+            <div class="card">
+                <div class="gambar martabak">
+                    🥞
+                </div>
+
+                <h3>Martabak Asin</h3>
+
+                <p>
+                    Martabak asin gurih dengan isian lezat,
+                    cocok untuk teman makan atau ngemil.
+                </p>
+
+                <div class="harga">Rp15.000</div>
+
+                <button onclick="pilihMenu('Martabak Asin', 'Rp15.000')">
+                    Pilih Menu
+                </button>
+            </div>
+
+            <!-- DURIAN -->
+            <div class="card">
+                <div class="gambar durian">
+                    🥭
+                </div>
+
+                <h3>Durian</h3>
+
+                <p>
+                    Durian dengan rasa manis dan aroma khas
+                    untuk kamu pecinta durian.
+                </p>
+
+                <div class="harga">Rp20.000</div>
+
+                <button onclick="pilihMenu('Durian', 'Rp20.000')">
+                    Pilih Menu
+                </button>
+            </div>
+
+            <!-- MOCHI -->
+            <div class="card">
+                <div class="gambar mochi">
+                    🍡
+                </div>
+
+                <h3>Mochi</h3>
+
+                <p>
+                    Mochi lembut dengan rasa manis yang cocok
+                    untuk camilan santai.
+                </p>
+
+                <div class="harga">Rp10.000</div>
+
+                <button onclick="pilihMenu('Mochi', 'Rp10.000')">
+                    Pilih Menu
+                </button>
+            </div>
+
+        </div>
+
+        <!-- PESANAN -->
+        <div id="pesanan">
+
+            <h2>🛍️ Pesanan Kamu</h2>
+
+            <div id="namaMenu"></div>
+
+            <p id="hargaMenu"></p>
+
+            <a id="linkWA"
+               class="wa"
+               target="_blank">
+                💬 Pesan Sekarang via WhatsApp
+            </a>
+
+            <button class="tutup" onclick="tutupPesanan()">
+                Tutup
+            </button>
+
+        </div>
+
+    </main>
+
+    <footer>
+        © 2026 Trio Rasa Shop • Dibuat dengan ❤️
+    </footer>
+
+
+    <script>
+
+        function pilihMenu(nama, harga) {
+
+            document.getElementById("pesanan").style.display = "block";
+
+            document.getElementById("namaMenu").innerHTML =
+                "🍽️ " + nama;
+
+            document.getElementById("hargaMenu").innerHTML =
+                "Harga: <b>" + harga + "</b>";
+
+            let pesan =
+                "Halo Trio Rasa Shop 👋%0A%0A" +
+                "Saya ingin memesan:%0A" +
+                "🍽️ Menu: " + nama + "%0A" +
+                "💰 Harga: " + harga + "%0A%0A" +
+                "Apakah masih tersedia?";
+
+            let nomor = "6289528864141";
+
+            document.getElementById("linkWA").href =
+                "https://wa.me/" + nomor + "?text=" + pesan;
+
+            document.getElementById("pesanan")
+                .scrollIntoView({ behavior: "smooth" });
+        }
+
+
+        function tutupPesanan() {
+
+            document.getElementById("pesanan").style.display = "none";
+
+        }
+
+    </script>
+
+</body>
+</html>
