@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trio Rasa Shop</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fffaf4;
+            color: #3b2923;
+        }
+
+        /* NAVBAR */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(255,250,244,0.95);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #eee0d2;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #c47b45;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #3b2923;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #c47b45;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 80px 8%;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #f5dfc9,
+                    #fffaf4
+                );
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text small {
+            color: #c47b45;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(50px, 8vw, 85px);
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .hero-text h1 span {
+            color: #c47b45;
+        }
+
+        .hero-text p {
+            color: #806d61;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+
+            background: #3b2923;
+            color: white;
+
+            text-decoration: none;
+
+            padding: 14px 28px;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #c47b45;
+            transform: translateY(-4px);
+        }
+
+        .hero-icon {
+            font-size: 180px;
+            padding: 60px;
+
+            background: white;
+            border-radius: 50%;
+
+            box-shadow: 15px 15px 0 #e5c2a4;
+        }
+
+        /* SECTION */
+        section {
+            padding: 80px 8%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title small {
+            color: #c47b45;
+            letter-spacing: 3px;
+        }
+
+        .title h2 {
+            font-size: 40px;
+            margin: 10px 0;
+        }
+
+        .title p {
+            color: #806d61;
+        }
+
+        /* PRODUK */
+        .products {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+
+            border: 1px solid #eee1d6;
+
+            border-radius: 25px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 10px 30px rgba(80,50,30,0.07);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-icon {
+            height: 180px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #f8eee5;
+
+            border-radius: 20px;
+
+            font-size: 90px;
+
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #806d61;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .price {
+            color: #c47b45 !important;
+            font-weight: bold;
+            font-size: 18px !important;
+
+            margin: 15px 0;
+        }
+
+        .wa-btn {
+            width: 100%;
+
+            border: none;
+
+            background: #3b2923;
+            color: white;
+
+            padding: 13px;
+
+            border-radius: 12px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .wa-btn:hover {
+            background: #c47b45;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #3b2923;
+            color: white;
+
+            border-radius: 30px;
+
+            text-align: center;
+
+            padding: 60px 30px;
+        }
+
+        .about small {
+            color: #e7b98e;
+            letter-spacing: 3px;
+        }
+
+        .about h2 {
+            font-size: 40px;
+            margin: 15px 0;
+        }
+
+        .about p {
+            max-width: 650px;
+            margin: auto;
+
+            color: #ded2cb;
+
+            line-height: 1.8;
+        }
+
+        /* KONTAK */
+        .contact {
+            text-align: center;
+            background: #f3e5d7;
+        }
+
+        .contact p {
+            color: #806d61;
+            margin: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #3b2923;
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        footer span {
+            color: #e7b98e;
+        }
+
+        /* MOBILE */
+        @media(max-width:700px) {
+
+            header {
+                padding: 18px 5%;
+            }
+
+            nav a {
+                margin-left: 8px;
+                font-size: 12px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .hero-icon {
+                font-size: 90px;
+                padding: 35px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .about h2 {
+                font-size: 32px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <div class="logo">
+            TRIO<span>RASA.</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#produk">Produk</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <small>WELCOME TO TRIO RASA SHOP</small>
+
+            <h1>
+                Three Taste.<br>
+                <span>One Place.</span>
+            </h1>
+
+            <p>
+                Nikmati tiga pilihan rasa favorit
+                dalam satu tempat. Gurih, manis,
+                dan lembut untuk menemani harimu.
+            </p>
+
+            <a href="#produk" class="hero-btn">
+                Lihat Produk →
+            </a>
+
+        </div>
+
+        <div class="hero-icon">
+            🍴
+        </div>
+
+    </section>
+
+
+    <!-- PRODUK -->
+
+    <section id="produk">
+
+        <div class="title">
+
+            <small>OUR PRODUCTS</small>
+
+            <h2>Trio Favorit ♡</h2>
+
+            <p>
+                Pilih makanan favoritmu dan langsung pesan.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <!-- MARTABAK -->
+
+            <article class="card">
+
+                <div class="product-icon">
+                    🥞
+                </div>
+
+                <h3>Martabak Telor</h3>
+
+                <p>
+                    Martabak telor gurih dengan
+                    isian yang lezat dan nikmat.
+                </p>
+
+                <p class="price">
+                    Rp20.000
+                </p>
+
+                <button
+                    class="wa-btn"
+                    onclick="pesan('Martabak Telor', '20.000')">
+
+                    💬 Pesan via WhatsApp
+
+                </button>
+
+            </article>
+
+
+            <!-- DURIAN -->
+
+            <article class="card">
+
+                <div class="product-icon">
+                    🌰
+                </div>
+
+                <h3>Durian</h3>
+
+                <p>
+                    Durian pilihan dengan aroma khas
+                    dan rasa manis yang legit.
+                </p>
+
+                <p class="price">
+                    Rp35.000
+                </p>
+
+                <button
+                    class="wa-btn"
+                    onclick="pesan('Durian', '35.000')">
+
+                    💬 Pesan via WhatsApp
+
+                </button>
+
+            </article>
+
+
+            <!-- MOCHI -->
+
+            <article class="card">
+
+                <div class="product-icon">
+                    🍡
+                </div>
+
+                <h3>Mochi</h3>
+
+                <p>
+                    Mochi lembut dengan rasa manis
+                    yang cocok untuk camilan.
+                </p>
+
+                <p class="price">
+                    Rp15.000
+                </p>
+
+                <button
+                    class="wa-btn"
+                    onclick="pesan('Mochi', '15.000')">
+
+                    💬 Pesan via WhatsApp
+
+                </button>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- TENTANG -->
+
+    <section id="tentang">
+
+        <div class="about">
+
+            <small>ABOUT US</small>
+
+            <h2>
+                Simple Food,<br>
+                Happy Moment ♡
+            </h2>
+
+            <p>
+                Trio Rasa Shop menyediakan tiga pilihan
+                makanan favorit yang dibuat dengan rasa
+                yang lezat dan cocok dinikmati kapan saja.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- KONTAK -->
+
+    <section class="contact" id="kontak">
+
+        <div class="title">
+
+            <small>CONTACT US</small>
+
+            <h2>Yuk, Pesan Sekarang!</h2>
+
+        </div>
+
+        <p>📱 WhatsApp: 089528864141</p>
+
+        <p>📍 Indonesia</p>
+
+        <p>⏰ Senin - Minggu | 09.00 - 21.00</p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Trio Rasa Shop</span>
+            · Made with ♡
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function pesan(produk, harga) {
+
+            /*
+            GANTI NOMOR DI BAWAH
+            CONTOH:
+            6281234567890
+            */
+
+            let nomor = "6289528864141";
+
+            let nama =
+                prompt("Masukkan nama kamu:");
+
+            if (nama == null || nama == "") {
+                return;
+            }
+
+            let pesan =
+                "Halo Trio Rasa Shop! 👋%0A%0A" +
+                "Saya ingin memesan:%0A" +
+                "🍴 " + produk + "%0A" +
+                "💰 Harga: Rp" + harga + "%0A%0A" +
+                "Nama: " + nama +
+                "%0A%0ATerima kasih!";
+
+            let url =
+                "https://wa.me/" +
+                nomor +
+                "?text=" +
+                pesan;
+
+            window.open(url, "_blank");
+
+        }
+
+    </script>
+
+</body>
+</html>
